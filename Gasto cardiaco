@@ -1,0 +1,249 @@
+\documentclass{report}
+\usepackage[utf8]{inputenc}
+
+% Títulos automáticos en español
+\usepackage[spanish]{babel}
+
+% Soporte para buenas urls e hipervínculos entre secciones
+\usepackage{hyperref}
+
+% Citas y referencias en formato APA
+% Si quiere las citas y referencias en IEEE comente esta línea
+\usepackage{apacite}
+
+% Imágenes y figuras
+\usepackage{graphicx}
+
+% Código fuente con números de línea
+\usepackage{listings}
+% Puede cambiar el lenguaje de código fuente
+% https://www.overleaf.com/learn/latex/code_listing#Supported_languages
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\lstset{
+    language=C,
+    basicstyle=\footnotesize,
+    numbers=left,
+    stepnumber=1,
+    showstringspaces=false,
+    tabsize=1,
+    breaklines=true,
+    breakatwhitespace=false,
+}
+
+
+\def \unidad{Universidad Autónoma Metropolitana}
+\def \programa{Licenciatura en Matemáticas Aplicadas}
+\def \curso{CD01MA - Cálculo 2}
+\def \titulo{Gasto Cardiaco}
+\def \subtitulo {Aplicaciones del cálculo integral}
+\def \autores{
+    Alvarez Camarillo Misael Vicente\\
+    2193035962\\
+    
+    \vspace{0.5cm}
+    
+    Angeles Dominguez Karla Aquilina\\
+    2193036192\\
+    
+    \vspace{0.5cm}
+    
+    Ocampo Hernandez Daniel\\
+    2193036156\\
+    
+    \vspace{0.5cm}
+    
+    Doctor:\\
+    Hernández Linarez Sergio\\
+
+}
+\def \fecha{Febrero 2021}
+\def \lugar{
+    Cuajimalpa, 
+    Ciudad de México, México
+}
+
+% Inicia el documento 
+\begin{document}
+
+% Inserta la portada del documento
+\input{portada}
+
+\tableofcontents
+
+\chapter{Introducción}\label{intro}
+
+El cálculo es una de las ramas mas importantes de las matemáticas, y una arma muy poderosa en resultados tantos teóricos como aplicados, desde el teorema fundamental del cálculo, hasta en aplicaciones como en la química o biología. La medicina es algo indispensable para la supervivencia humana, hoy más que nunca somos cocientes de ello, pero detrás de todo eso, hay bases matemáticas las cuales permiten calcular, modelar o desarrollar problemas del ámbito médico, un ejemplo de ello son los modelos matemáticos, los cuales tienen un gran impacto en esta época, sobretodo actualmente por el SARS-CoV-2, o como todo mundo lo conoce, covid-19, ya que se ocupan en su mayoría ecuaciones diferenciales para modelar su comportamiento por ejemplo. También hay otras aplicaciones muy importantes en la medicina que tiene que ver con las integrales, en especial el cálculo de volúmenes.\\
+\\
+El gasto cardiaco es una aplicación del cálculo integral, el cual es el volumen de sangre que bombea el corazón en un tiempo unitario, el cual se mide con un método llamado: Método de dilución de tintura. El cual sera nuestro método central para este proyecto. 
+
+
+
+\chapter{Gasto Cardiaco}\label{gasto cardiaco}
+
+\section{Definición}\label{definición}
+
+
+\textit{De acuerdo con la REVISTA MEXICANA DE INGENIERÍA BIOMÉDICA} 
+El gasto cardiaco (GC) representa el volumen de
+sangre en litros (l) que eyecta cada ventrículo del
+corazón hacia las arterias pulmonar o aórtica por
+cada minuto (l/min). El GC se encuentra regulado
+por diversos factores: el volumen de eyección sistólica, la frecuencia cardiaca, la precarga (longitud de las células musculares del miocardio antes de la contracción), la post carga (resistencia
+vascular que ofrece la aorta al flujo de sangre que
+impulsa el ventrículo izquierdo), y la contractilidad
+(o fuerza de contracción del miocardio). El valor
+promedio normal del GC en un varón joven y sano
+es de 5.6 l/min.
+ 
+
+\section{Técnicas para
+calcular el GC:}\label{tecnicas}
+
+\textit{De acuerdo con la REVISTA MEXICANA DE INGENIERÍA BIOMÉDICA.} En la actualidad existen diversas técnicas para
+calcular el GC:
+\begin{enumerate}
+\item \textbf{  Medición electromagnética:}\\
+Se introdujo como una técnica común para medir la velocidad del flujo sanguíneo en las arterias y venas. Utiliza campos magnéticos que se aplican en forma perpendicular al vaso sanguíneo en el que se va a medir el flujo. El campo magnético se supone homogéneo, y según la ley
+de la inducción, se induce un voltaje perpendicular a la dirección del flujo. Así, el movimiento de la sangre en el campo magnético induce un voltaje que es registrado por dos electrodos que hacen contacto con la pared
+del vaso. Este voltaje es proporcional a la velocidad de flujo, al diámetro interno del vaso y
+a la densidad del flujo magnético. La principal ventaja de esta técnica es que el campo magnético no afecta el flujo que se está midiendo y es insensible a las variaciones de temperatura y presión. Su principal desventaja es la complejidad en el proceso de calibración de los transductores.\\
+
+
+\item  \textbf{  Técnica de dilución:}\\
+En esta técnica se inyecta instantáneamente en el torrente circulatorio
+una cantidad de sustancia marcada o indicador (l) y se detecta su paso en otro lugar del circuito. Se gráfica la concentración de l en función del tiempo, y el área bajo la curva se utiliza para calcular el flujo.\\
+\\
+Se utilizan 3 tipos de indicadores, los cuales son:\\
+
+\begin{enumerate}
+
+\item \textit{  Colorante: Se usa en combinación con una solución isotónica, y su concentración se determina midiendo la absorción luminosa de la sangre con un densitómetro. Un nombre común para esta técnica es dilución por colorante.}\\
+\\
+\item \textit{  Solución salina fría:  Se inyecta una cantidad conocida de solución salina fría en la aurícula derecha o la vena cava superior, y el cambio de temperatura en la sangre resultante es detectado por medio de un termistor en la arteria pulmonar. El GC es inversamente proporcional a la integral del cambio de temperatura. Esta técnica también es conocida como termodilución, permite el monitoreo del GC durante y después de intervenciones quirúrgicas o en pacientes críticos en unidades de terapia intensiva.}\\
+\\
+\item \textit{  Isótopos radiactivos:  Comúnmente se utiliza un bolo de albúmina marcada con un radioisótopo. La concentración de isótopos puede determinarse con un contador de centelleo, colocado frente al corazón, obteniéndose así el primer pico de una curva de dilución compuesta por dos picos. Adicionalmente se requiere una muestra de sangre venosa tomada 10 minutos después de la inyección (cuando el bolo se ha mezclado completamente con la sangre), así como el registro de la radiactividad a nivel
+precordial en el punto de equilibrio.}
+
+\end{enumerate}
+
+\item \textbf{    Ultrasonido:}\\
+Utiliza un haz ultrasónico con el efecto Doppler para medir la velocidad del flujo sanguíneo como una función de la distancia a través del vaso. Esta técnica se considera la menos invasiva y proporciona gran cantidad de información hemodinámica. En el efecto Doppler continuo, la principal desventaja es que la medición es sólo aceptable cuando los transductores de transmisión y recepción se posicionan de tal forma que sus haces ultrasónicos se intercepten en el centro del vaso. En el efecto Doppler pulsátil, el teorema de muestreo es una limitante, ya que la frecuencia de repetición de pulsos debe ser por lo menos el doble de la máxima frecuencia Doppler.\\
+\\
+
+\item \textbf{  Impedancimetría transtorácica:}\\
+Estima el GC indirectamente mediante el monitoreo de las variaciones de impedancia transtorácica. En esta técnica, una corriente de baja intensidad y alta frecuencia pasa longitudinalmente a través de un segmento del cuerpo. De acuerdo a la ley de Ohm, la corriente multiplicada por la impedancia del cuerpo genera un voltaje entre dos electrodos de medición. La señal detectada está compuesta de al menos 3 componentes asociados con la impedancia basal (Z$_{0}$), la actividad respiratoria y la actividad cardiaca.
+
+\end{enumerate}
+\section{Historia}\label{problema}
+En 1897, Stewart describió experimentos con el principio de dilución de indicadores, inyectó cloruro de sodio en la circulación venosa central de animales y midió posteriormente su concentración en la arteria femoral. Hamilton modificó este principio para dar cuenta de las concentraciones variables de inyectado diluido en el tiempo, desarrollando una curva de concentración a través del tiempo para reflejar este fenómeno. Pudo demostrar entonces que el GC fue igual a la cantidad de colorante indicador (verde de indocianina) inyectado, dividido por la integral del área bajo la curva de dilución medida en el lado arterial, conocida hoy como la ecuación de Stewart-Hamilton.\\
+\textit{Consultado en el articulo Correlación de gasto cardiaco obtenido por termodilución y por monitor ultrasónico (USCOM) en pacientes con choque séptico}
+
+
+\section{Integral}\label{problema}
+
+D mg= Cantidad inyectada\\
+C(t)(mg/L)= Concentración de tinte en el momento t\\
+$T_0$=Tiempo total requerido para que todo el tinte  pase por el punto del monitoreo\\
+Considerar el intervalo $0\leq t  \leq$ $T_0$ dividido en n subintervalos iguales, cada uno con longitud $\triangle t=(T_0-0)/n$ \\
+Si R es el gasto cardiaco (litros/min) entonces por la sonda de monitoreo pasan aproximadamente R$\triangle$t litros de sangre durante el K-ésimo subintervalo de tiempo\\
+$t_{K-1} \leq t \leq t_k $ portando $C(t_k)$ $R\triangle$ t mg de tinte\\
+sumando las cantidades de tinte en todos los intervalos tenemos:\\
+$$\sum_{k=1}^{n}C(t_k)R\triangle t$$\\
+Cómo una aproximación total de tinte y tomando el limite cuando n tiende a más infinito, obtenemos la cantidad total real de tinte con una integral definida:\\\\
+$$\lim\limits_{x \to \infty}(\sum_{k=1}^{n}C(t_k)R\triangle t)=\int_0^{T_0} C(t)Rdt=R\int_0^{T_0}C(t)dt$$\\
+\begin{equation} \label{eq1}
+\begin{split}
+D=R\int_0^{T_0}C(t)dt
+\end{split}
+\end{equation}\\
+Por lo que el GC está dado por:\\
+\begin{equation} \label{eq2}
+\begin{split}
+R=\frac{D}{\int_0^{T_0}C(t)dt}
+\end{split}
+\end{equation}
+
+
+
+
+\section{Ejemplo}\label{problema}
+En el hospital Sloan Memorial, la doctora Ivonne inyecta 4 mg de tinte en una vena cercana al corazón de un niño, un dispositivo de monitoreo registra la concentración de tinte en la sangre a intervalos regulares durante un periodo de 23 seg. Se determina que la concentración en el momento $t(0\leq t \geq 23)$ se aproxima bastante bien mediante la función:
+$C(t)=0.09t^2e^{-0.0007t^3} mg/L$\\ 
+De acuerdo a la información dada ¿Cuál es el gasto cardiaco del niño?\\\\
+\textbf{ Solución}\\
+Los limites de nuestra integral son de 0 a 23\\
+$$\int_0^{23}0.09t^2e^{-0.0007t^3} =0.09\int_0^{23}e^{-0.0007t^3}(t^2)dt=0.09\int_0^{23}t^2e^{-\frac{7t^3}{10000}}dt$$
+\\ sustituyendo:
+\\ $$u=-\frac{7t^3}{10000}\longrightarrow \frac{du}{dt}=-\frac{21t^2}{10000}\longrightarrow dt=-\frac{10000}{21t^2}du$$\\
+$$=(0.09)\frac{-10000}{21}\int_0^{23}e^udu=(0.09)(\frac{-10000}{21})e^u=(0.09)\frac{-10000 e^u}{21}=(0.09)\frac{-10000 e^{-\frac{7t^3}{10000}}}{21}$$
+
+$$\left \hspace{0.001} (0.09)\frac{-10000 e^{-\frac{7t^3}{10000}}}{21}\right|_0^{23}=(0.09)\frac{-10000 e^{-\frac{7(23)^3}{10000}}}{21}=(0.09)(\frac{10000}{21}-\frac{10000e^{-\frac{85169}{10000}}}{21}) \approx 42.85\\$$
+$$R=\frac{4}{\int_0^{23}C(t)dt}=\aprox \frac{4}{42.85}\approx 0.093 L/s$$\\
+$$R \approx(0.093 L/s)(60s/min) \approx 5.6 L/min$$\\
+Por lo tanto el gasto cardiaco del niño es de $R \approx5.6 L/min $
+
+\section{Método por termodilución transpulmonar}
+
+Este método es una variante del método antes mencionado. Consite en medir la temperatura de una solución inyectada a través de un catéter intravenoso(García 2011), que permiten medir tanto la temperatura tanto como la presión arterial. El suero, al provocar cambios de temperatura en la sangre permiten calcular el GC a través de una ecuación modificada de Stewart-Hamilton.
+
+$$CO = \frac{(T_b-T_i)\times V_i\times k}{\int\Delta T_b \times dt}$$
+
+En donde $k$ es una constante dada por el suero inyectado, $T_b$ es la temperatura de la sangre, $T_i$ es la temperatura del marcador, $V_i$ es el volumen inyectado de suero y $T_b(t) dt$ es el cambio del volumen de la temperatura de la sangre en función del tiempo.
+
+\subsection{Ejemplo}
+
+Suponiendo un paciente al que se le inyectó 50mm de un suero a una temperatura de 8°C con una constante de 0.8. Además la función del cambio temperatura está dada por $t^{2}e^{-0.7t}$. Siendo el cambio de temperatura en el intervalo de tiempo $[0,8]$ Obtener el gasto cardíaco.
+
+Primero calculamos la integral
+
+\begin{align*}
+    \int_0^8 t^{2}e^{-0.7t} &=   \left. -\frac{t^2 10e^{-0.7t}}{7}\right\rvert_0^8 - \int_0^8 -\frac{10e^{-0.7t}}{7} 2t dt\\
+    &= \left. -\frac{t^2 10e^{-0.7t}}{7}\right\rvert_0^8 + \frac{20}{7}\int_0^8 e^{-0.7t} 2t dt\\
+    &= \left. -\frac{t^2 10e^{-0.7t}}{7}\right\rvert_0^8 + \frac{20}{7}\left(\left.\frac{-t 10e^{-0.7t}}{7}\right\rvert_0^8 - \int_0^8 e^{-0.7t} dt\right)\\
+    &= \left. -\frac{t^2 10e^{-0.7t}}{7} + \frac{20}{7}\left(\frac{-t 10e^{-0.7t}}{7} +\frac{10}{7}\frac{1}{-0.7}e^{-0.7t}\right)\right\rvert_0^8\\
+    &= \left. -\frac{10t^{2}e^{-0.7t}}{7}-\frac{200te^{-0.7t}}{49}-\frac{2000e^{-0.7t}}{343}\right\rvert_0^8\\
+    &= \left.\left[ -e^{-0.7t}\left(\frac{10t^{2}}{7}+\frac{200t}{49}-\frac{2000}{343}\right)\right]\right\rvert_0^8\\
+    &\approx 5.3505
+\end{align*}
+
+Por lo que el gasto cardíaco está dado por
+
+\begin{align*}
+    CO &= \frac{(36-8)(0.50)(0.8)}{5.3505}\\
+    &\approx 2.09 L/min
+\end{align*}
+
+\section{Método por análisis de presión arterial}
+
+Este método tiene su base en la relación que mantiene el gasto cardíaco con el volumen sistólico. Al analizar la presión de las arterias y su cambio con base en el volumen de las arterias podemos generar la integral usando el modelo Windkessel, el cual permite obtener el volumen sistólico a través de la siguiente relación.
+
+\begin{align*}
+    VS &= APS/Z_a\\
+    APS &= \int(P_{AO}(t) - P_{TD})dt
+\end{align*}
+
+Donde VS es el volumen sistólico, APS es el área pulsatil sistólica $P_{AO}(t)$ es la presión de la aorta en función del tiempo y $P_{TD}$ es la presión final de la aorta.
+
+\section{Conclusiones}
+Como hemos visto el gasto cardiaco es esencial para la salud de una persona, debido a que si esta en niveles diferentes de lo normal el cuerpo sera incapaz de realizar todas sus actividades, es por esto que el cálculo es indispensable para preservar la salud de una persona, y tal vez en el futuro se descubran nuevos modelos que involucren técnicas del cálculo que ayuden al sector de la salud. 
+
+
+\begin{thebibliography}{9}
+
+\bibitem{gaytan} 
+Gaytán Martínez Z., García Piche M.C.,  Jiménez González A.
+\textit{Sociedad Mexicana de Ingeniería Biomédica,}. (México) 
+[\textit{Medición de gasto cardiaco para
+aplicaciones en docencia: comparación
+de dos tecnologías}]. 
+78–91, 2004.
+\\\texttt{https://www.medigraphic.com/pdfs/inge/ib-2004/ib041k.pdf}\\
+\bibitem{García}García X.(2011).Estimación del gasto cardíaco. Utilidad en la práctica clínica. Monitorización disponible invasiva y no invasiva
+\\\texttt{http://scielo.isciii.es/scielo.php?script=sci\_arttext&pid=S0210-56912011000900004}\\
+\bibitem{Del Cermen}Del Carmen M.(2017).Correlación de gasto cardiaco obtenido por termodilución y por monitor ultrasónico (USCOM) en pacientes con choque séptico.
+\\\texttt{http://www.scielo.org.mx/scielo.php?script=sci\_arttext&pid=S2448-89092018000400191}
+\end{thebibliography}
+\end{document}
